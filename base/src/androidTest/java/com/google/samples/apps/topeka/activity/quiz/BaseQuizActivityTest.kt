@@ -31,8 +31,8 @@ import android.view.View
 import com.google.samples.apps.topeka.base.R
 import com.google.samples.apps.topeka.SolveQuizUtil
 import com.google.samples.apps.topeka.TestLogin
-import com.google.samples.apps.topeka.activity.QuizActivity
-import com.google.samples.apps.topeka.activity.countingIdlingResource
+import com.google.samples.apps.topeka.quiz.activity.QuizActivity
+import com.google.samples.apps.topeka.quiz.activity.countingIdlingResource
 import com.google.samples.apps.topeka.helper.database
 import com.google.samples.apps.topeka.helper.login
 import com.google.samples.apps.topeka.helper.logout
@@ -56,7 +56,7 @@ class BaseQuizActivityTest {
 
     @Suppress("unused") // actually used by Espresso
     val activityRule @Rule get() = object :
-            ActivityTestRule<QuizActivity>(QuizActivity::class.java) {
+            ActivityTestRule<com.google.samples.apps.topeka.quiz.activity.QuizActivity>(com.google.samples.apps.topeka.quiz.activity.QuizActivity::class.java) {
         override fun beforeActivityLaunched() {
             login = TestLogin
             with(InstrumentationRegistry.getTargetContext()) {
@@ -67,7 +67,7 @@ class BaseQuizActivityTest {
         }
 
         override fun getActivityIntent(): Intent {
-            return QuizActivity.getStartIntent(InstrumentationRegistry.getTargetContext(),
+            return com.google.samples.apps.topeka.quiz.activity.QuizActivity.getStartIntent(InstrumentationRegistry.getTargetContext(),
                     currentCategory)
         }
     }
@@ -87,14 +87,14 @@ class BaseQuizActivityTest {
      * Register idling resources for the activity under test.
      */
     @Before fun registerIdlingResources() {
-        Espresso.registerIdlingResources(countingIdlingResource)
+        Espresso.registerIdlingResources(com.google.samples.apps.topeka.quiz.activity.countingIdlingResource)
     }
 
     /**
      * Unregister idling resources for the activity under test.
      */
     @After fun unregisterIdlingResources() {
-        Espresso.unregisterIdlingResources(countingIdlingResource)
+        Espresso.unregisterIdlingResources(com.google.samples.apps.topeka.quiz.activity.countingIdlingResource)
     }
 
     /**

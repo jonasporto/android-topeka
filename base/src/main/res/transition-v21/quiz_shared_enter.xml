@@ -21,7 +21,7 @@
 
     <changeBounds/>
     <arcMotion android:maximumAngle="50"/>
-    <transition class="com.google.samples.apps.topeka.widget.TextResizeTransition">
+    <transition class="com.google.samples.apps.topeka.quiz.widget.TextResizeTransition">
         <targets>
             <target android:targetId="@id/category_title"/>
         </targets>
