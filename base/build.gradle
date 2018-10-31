@@ -44,16 +44,15 @@ android {
 }
 
 dependencies {
+    api 'com.android.support:appcompat-v7:27.1.1'
     application project(':installed')
 
-    implementation "com.android.support:appcompat-v7:$supportLibVersion"
-    implementation "com.android.support:design:$supportLibVersion"
-    implementation "com.android.support:recyclerview-v7:$supportLibVersion"
+    api "com.android.support:appcompat-v7:$supportLibVersion"
+    api "com.android.support:design:$supportLibVersion"
     api "com.android.support:support-v4:$supportLibVersion"
-    implementation "com.android.support.test.espresso:espresso-idling-resource:$espressoVersion"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-
-    implementation "com.google.android.gms:play-services-auth:$playServicesAuthVersion"
+    api "com.android.support.test.espresso:espresso-idling-resource:$espressoVersion"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    api "com.google.android.gms:play-services-auth:$playServicesAuthVersion"
 
     testImplementation "junit:junit:$junitVersion"
 
@@ -68,4 +67,7 @@ dependencies {
     androidTestImplementation "com.android.support.test:rules:$androidTestVersion"
     androidTestImplementation "com.android.support.test:runner:$androidTestVersion"
     androidTestImplementation "org.hamcrest:hamcrest-core:$hamcrestVersion"
+
+    feature project(":categories")
+    feature project(":quiz")
 }
